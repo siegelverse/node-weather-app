@@ -12,7 +12,8 @@ request({ url:weatherURL, json: true }, (error, response) => {
 })
 
 request({ url:mapURL, json: true }, (error, response) => {
-    const coordinates = response.body.features[3].bbox
+    const lat = response.body.features[0].center[1]
+    const long = response.body.features[0].center[0]
 
-    console.log(coordinates)
+    console.log(lat, long)
 })
