@@ -4,25 +4,30 @@ const express = require('express')
 const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
 
+app.set('view engine', 'hbs')
 app.use(express.static(publicDirectoryPath))
 
-// app.get('/help', (req, res) => {
-//     res.send([
-//     {
-//         name: 'Marcus', 
-//         age: 27
-//     },
-//     {
-//         name: 'Snax',
-//         age: 6
-//     }
-// ])
-// })
+app.get('', (req, res) => {
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Marcus Siegel'
+    })
+})
 
-// app.get('/about', (req, res) => {
-//     res.send('<h1>About</h1>')
-// })
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: 'About Me',
+        name: 'Marcus Siegel'
+    })
+})
 
+app.get('/help', (req, res) => {
+    res.render('help', {
+        title: 'Help',
+        name: 'Marcus Siegel',
+        email: 'msiegel37@gmail.com'
+    })
+})
 
 app.get('/weather', (req, res) => {
     res.send({
