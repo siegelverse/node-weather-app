@@ -46,8 +46,36 @@ app.get('/weather', (req, res) => {
     })
 })
 
+app.get('/help/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        errorMessage: 'Help Article Not Found',
+        name: 'Marcus Siegel'
+    })
+})
+
+app.get('/about/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        errorMessage: 'About Article Not Found',
+        name: 'Marcus Siegel'
+    })
+})
+
+app.get('/weather/*', (req, res) => {
+    res.render('404', {
+        title: '404',
+        errorMessage: 'Weather Article Not Found',
+        name: 'Marcus Siegel'
+    })
+})
+
 app.get('*', (req, res) => {
-    res.send('404')
+    res.render('404', {
+        title: '404',
+        errorMessage: 'Page Not Found',
+        name: 'Marcus Siegel'
+    })
 })
 
 app.listen(3000, () => {
