@@ -3,19 +3,20 @@
 <html>
 
     <head>
+        <title>Help</title>
+        <link rel="icon" href="/img/weather.png">
         <link rel="stylesheet" href="./css/styles.css">
     </head>
 
     <body>
-        {{>header}}
-        <p>
-            This site was made with Node and Express by {{name}}. 
-            If you'd link to reach {{name}}, please send him an email with this <a href="mailto: msiegel37@gmail.com">link</a>. 
-        </p> 
-    </body>
-
-    <footer>
+        <div class="main-content">
+            {{>header}}
+            <p>
+                This site was made with Node and Express by {{name}}. 
+                If you'd like to reach {{name}}, please send him an email with this <a href="mailto: msiegel37@gmail.com">link</a>. 
+            </p> 
+        </div> 
         {{>footer}}
-    </footer>
+    </body>
 
 </html>
