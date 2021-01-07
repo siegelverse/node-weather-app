@@ -40,9 +40,16 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
+    if (!req.query.address) {
+        return res.send({
+            error: "You must enter an address!"
+        })
+    }
+    console.log(req.query.address)
     res.send({
         forecast: '75 degrees and sunny',
-        location: 'Austin, Texas'
+        location: 'Austin, Texas',
+        address: req.query.address
     })
 })
 
@@ -61,6 +68,18 @@ app.get('/about/*', (req, res) => {
         name: 'Marcus Siegel'
     })
 })
+
+// app.get('/products', (req, res) => {
+//     if (!req.query.search) {
+//         return res.send({
+//             error: 'You Must Provide Search Term'
+//         })
+//     }
+//     console.log(req.query)
+//     res.send({
+//         products: []
+//     })
+// })
 
 app.get('/weather/*', (req, res) => {
     res.render('404', {
