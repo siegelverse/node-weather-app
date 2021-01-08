@@ -21,7 +21,7 @@ app.use(express.static(publicDirectoryPath))
 
 app.get('', (req, res) => {
     res.render('index', {
-        title: 'Weather App',
+        title: "Hey, Weather!",
         name: 'Marcus Siegel'
     })
 })
@@ -80,18 +80,6 @@ app.get('/about/*', (req, res) => {
         name: 'Marcus Siegel'
     })
 })
-
-// app.get('/products', (req, res) => {
-//     if (!req.query.search) {
-//         return res.send({
-//             error: 'You Must Provide Search Term'
-//         })
-//     }
-//     console.log(req.query)
-//     res.send({
-//         products: []
-//     })
-// })
 
 app.get('/weather/*', (req, res) => {
     res.render('404', {
