@@ -1,4 +1,5 @@
 const request = require('request')
+const moment = require('moment-timezone')
 
 const forecast = (lat, long, callback) => {
     const url = `http://api.weatherstack.com/current?access_key=a4788cc85c0a8114e826bb5016ef9604&query=${lat},${long}&units=f`
@@ -9,7 +10,8 @@ const forecast = (lat, long, callback) => {
             callback('Unable to find location')
         } else {
             const current = body.current
-            callback(undefined, `Local time is ${current.observation_time}. ${current.weather_descriptions[0]}. It is currently ${current.temperature} degrees. It feels like ${current.feelslike} degrees.`)
+            const localTime = moment.tz(body.location.localtime, body.location.timezone_id).format('h:ma z')
+            callback(undefined, `Local time is ${localTime}. ${current.weather_descriptions[0]}. It is currently ${current.temperature} degrees. It feels like ${current.feelslike} degrees.`)
         }
     })
 }

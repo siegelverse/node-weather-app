@@ -51,6 +51,10 @@ h1 {
     
 }
 
+.weather-icon {
+    width: 350px;
+}
+
 input {
     border: 1px solid royalblue;
     padding: 8px;
