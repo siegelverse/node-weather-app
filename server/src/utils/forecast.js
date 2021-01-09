@@ -10,7 +10,7 @@ const forecast = (lat, long, callback) => {
             callback('Unable to find location')
         } else {
             const current = body.current
-            const localTime = moment.tz(body.location.localtime, body.location.timezone_id).format('h:ma z')
+            const localTime = moment.tz(body.location.localtime, body.location.timezone_id).format('h:mma z')
             callback(undefined, `Local time is ${localTime}. ${current.weather_descriptions[0]}. It is currently ${current.temperature} degrees. It feels like ${current.feelslike} degrees.`)
         }
     })
