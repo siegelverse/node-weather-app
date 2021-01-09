@@ -2,21 +2,38 @@
 
 <html>
 
-    <head>
-        <title>Help</title>
-        <link rel="icon" href="/img/weather.png">
-        <link rel="stylesheet" href="./css/styles.css">
-    </head>
+<head>
+    <title>Help</title>
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
 
-    <body>
-        <div class="main-content">
-            {{>header}}
-            <p>
-                This site was made with Node and Express by {{name}}. 
-                If you'd like to reach {{name}}, please send him an email with this <a href="mailto: msiegel37@gmail.com">link</a>. 
-            </p> 
-        </div> 
-        {{>footer}}
-    </body>
+<body>
+    <div class="main-content">
+        {{>header}}
+        <p>
+            This site was made with Node and Express by {{name}}.
+            If you'd like to reach {{name}}, please fill out the contact form below.
+        </p>
+        <div class="container">
+            <form id="contact" action="https://formspree.io/f/maylajal" method="POST">
+                <h3>Contact Me</h3>
+                <fieldset>
+                    <input placeholder="Name" type="name" name="name" tabindex="1" required autofocus>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Email Address" name="_replyto" type="email" tabindex="2" required>
+                </fieldset>
+                <fieldset>
+                    <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+                </fieldset>
+                <fieldset>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Send</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    {{>footer}}
+</body>
 
 </html>
